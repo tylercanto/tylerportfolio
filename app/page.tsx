@@ -288,10 +288,14 @@ const terminalCommands: Record<string, string[]> = {
               Skills
             </a>
 
-            <a href="#projetos" className="hover:text-[#470000] transition">
-              Projetos
-            </a>
-
+      <a
+  href="https://tylerportfolio-mauve.vercel.app/#projetos"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="hover:text-[#470000] transition"
+>
+  Projetos
+</a>
             <a href="#contato" className="hover:text-[#470000] transition">
               Contato
             </a>
@@ -462,7 +466,7 @@ const terminalCommands: Record<string, string[]> = {
             "
           >
 
-            Projetos
+            Portfólio
 
           </a>
 
