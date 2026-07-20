@@ -449,7 +449,7 @@ const terminalCommands: Record<string, string[]> = {
 
 
           <a
-            href="https://projetos-mu-rose.vercel.app/#projetos"
+            href="#projetos"
             target="_blank"
             rel="noopener noreferrer"
             className="
