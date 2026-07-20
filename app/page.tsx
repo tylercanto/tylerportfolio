@@ -462,7 +462,7 @@ const terminalCommands: Record<string, string[]> = {
             "
           >
 
-            Portfólio
+            Projetos
 
           </a>
 
