@@ -449,7 +449,7 @@ const terminalCommands: Record<string, string[]> = {
 
 
           <a
-            href="https://tyler-portfolio-beta.vercel.app/"
+            href="https://projetos-mu-rose.vercel.app/#projetos"
             target="_blank"
             rel="noopener noreferrer"
             className="
@@ -2483,7 +2483,7 @@ const terminalCommands: Record<string, string[]> = {
 
             <a
 
-              href="https://tyler-portfolio-beta.vercel.app/"
+              href="https://projetos-mu-rose.vercel.app/#projetos"
 
               target="_blank"
 
@@ -2500,7 +2500,7 @@ const terminalCommands: Record<string, string[]> = {
 
             >
 
-              ◈ Portfólio
+              ◈ Projetos
 
             </a>
 
