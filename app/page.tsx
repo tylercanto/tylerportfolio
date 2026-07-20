@@ -1391,7 +1391,7 @@ const terminalCommands: Record<string, string[]> = {
 
           <a
 
-            href="https://github.com/tylercanto/portfolio"
+            href="https://github.com/tylercanto/"
 
             target="_blank"
 
