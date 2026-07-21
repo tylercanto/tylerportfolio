@@ -81,12 +81,6 @@ export const timeline = [
 
 type Command = "help" | "skills" | "projects" | "contact" | "clear";
 
-const PROJECTS_URL = "[projetos-mu-rose.vercel.app](https://projetos-mu-rose.vercel.app/#projetos)";
-const GITHUB_URL = "[github.com](https://github.com/tylercanto)";
-const LINKEDIN_URL = "[linkedin.com](https://www.linkedin.com/in/tyler-canto/)";
-const EMAIL = "tylercanto23@gmail.com";
-const WHATSAPP = "(37) 99121-1749";
-
 const terminalCommands: Record<Exclude<Command, "clear">, string[]> = {
   help: [
     "Comandos disponíveis:",
@@ -99,11 +93,11 @@ const terminalCommands: Record<Exclude<Command, "clear">, string[]> = {
   skills: skills.map((s) => `◈ ${s}`),
   projects: projects.map((project) => `◈ ${project.title}`),
   contact: [
-    `Email: ${EMAIL}`,
+    "Email: tylercanto23@gmail.com",
     "",
-    `LinkedIn: linkedin.com/in/tyler-canto`,
+    "LinkedIn: linkedin.com/in/tyler-canto",
     "",
-    `GitHub: github.com/tylercanto`,
+    "GitHub: github.com/tylercanto",
   ],
 };
 
@@ -142,7 +136,6 @@ export default function Home() {
 
     const output = terminalCommands[cmd];
 
-    // Auto-limpa: substitui o histórico em vez de acumular
     setTerminalHistory([
       `[visitor@datacenter ~]$ ${cmd}`,
       "",
@@ -155,6 +148,11 @@ export default function Home() {
 
     setCommand("");
     inputRef.current?.focus();
+  }
+
+  // Handler para links externos - garante que abram corretamente
+  function handleExternalLink(url: string) {
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -217,30 +215,24 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-5 mt-10">
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 rounded-xl bg-[#470000] hover:bg-[#700000] transition font-semibold"
+          <button
+            onClick={() => handleExternalLink("[github.com](https://github.com/tylercanto)")}
+            className="px-8 py-4 rounded-xl bg-[#470000] hover:bg-[#700000] transition font-semibold cursor-pointer"
           >
             GitHub
-          </a>
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 rounded-xl border border-[#470000]/40 hover:bg-[#470000]/10 transition"
+          </button>
+          <button
+            onClick={() => handleExternalLink("[linkedin.com](https://www.linkedin.com/in/tyler-canto/)")}
+            className="px-8 py-4 rounded-xl border border-[#470000]/40 hover:bg-[#470000]/10 transition cursor-pointer"
           >
             LinkedIn
-          </a>
-          <a
-            href={PROJECTS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 rounded-xl border border-zinc-700 hover:border-[#470000] transition"
+          </button>
+          <button
+            onClick={() => handleExternalLink("[projetos-mu-rose.vercel.app](https://projetos-mu-rose.vercel.app/#projetos)")}
+            className="px-8 py-4 rounded-xl border border-zinc-700 hover:border-[#470000] transition cursor-pointer"
           >
             Projetos
-          </a>
+          </button>
         </div>
       </section>
 
@@ -467,14 +459,12 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center mt-14">
-          <a
-            href={GITHUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 rounded-xl border border-[#470000] text-[#ff0033] hover:bg-[#470000] hover:text-white transition"
+          <button
+            onClick={() => handleExternalLink("[github.com](https://github.com/tylercanto)")}
+            className="px-8 py-4 rounded-xl border border-[#470000] text-[#ff0033] hover:bg-[#470000] hover:text-white transition cursor-pointer"
           >
             ◈ Ver todos os projetos no GitHub
-          </a>
+          </button>
         </div>
       </section>
 
@@ -526,7 +516,6 @@ export default function Home() {
                 placeholder="Digite um comando..."
                 aria-label="Comando do terminal"
                 autoComplete="off"
-                autoFocus
               />
             </form>
           </div>
@@ -634,50 +623,44 @@ export default function Home() {
               <span className="text-[#470000] text-3xl">◈</span>
               <h3 className="mt-4 font-bold">E-mail</h3>
               <a
-                href={`mailto:${EMAIL}`}
+                href="mailto:tylercanto23@gmail.com"
                 className="text-zinc-400 mt-3 block break-all hover:text-[#700000] transition"
               >
-                {EMAIL}
+                tylercanto23@gmail.com
               </a>
             </div>
 
             <div className="rounded-3xl border border-[#470000]/30 bg-black p-6 text-center hover:border-[#470000] transition">
               <span className="text-[#700000] text-3xl">◈</span>
               <h3 className="mt-4 font-bold">WhatsApp</h3>
-              <p className="text-zinc-400 mt-3">{WHATSAPP}</p>
+              <p className="text-zinc-400 mt-3">(37) 99121-1749</p>
             </div>
 
             <div className="rounded-3xl border border-[#470000]/30 bg-black p-6 text-center hover:border-[#470000] transition">
               <span className="text-[#700000] text-3xl">◈</span>
               <h3 className="mt-4 font-bold">LinkedIn</h3>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-400 mt-3 block hover:text-[#700000] transition"
+              <button
+                onClick={() => handleExternalLink("[linkedin.com](https://www.linkedin.com/in/tyler-canto/)")}
+                className="text-zinc-400 mt-3 block hover:text-[#700000] transition cursor-pointer"
               >
                 /in/tyler-canto
-              </a>
+              </button>
             </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-5 mt-12">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-xl border border-[#470000] hover:bg-[#470000] transition"
+            <button
+              onClick={() => handleExternalLink("[github.com](https://github.com/tylercanto)")}
+              className="px-8 py-4 rounded-xl border border-[#470000] hover:bg-[#470000] transition cursor-pointer"
             >
               ◈ GitHub
-            </a>
-            <a
-              href={PROJECTS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 rounded-xl bg-[#470000] hover:bg-[#700000] transition"
+            </button>
+            <button
+              onClick={() => handleExternalLink("[projetos-mu-rose.vercel.app](https://projetos-mu-rose.vercel.app/#projetos)")}
+              className="px-8 py-4 rounded-xl bg-[#470000] hover:bg-[#700000] transition cursor-pointer"
             >
               ◈ Projetos
-            </a>
+            </button>
           </div>
         </div>
       </section>
