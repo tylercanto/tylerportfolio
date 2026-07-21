@@ -81,9 +81,9 @@ export const timeline = [
 
 type Command = "help" | "skills" | "projects" | "contact" | "clear";
 
-const PROJECTS_URL = "https://github.com/tylercanto";
-const GITHUB_URL = "https://github.com/tylercanto";
-const LINKEDIN_URL = "https://www.linkedin.com/in/tyler-canto/";
+const PROJECTS_URL = "[projetos-mu-rose.vercel.app](https://projetos-mu-rose.vercel.app/#projetos)";
+const GITHUB_URL = "[github.com](https://github.com/tylercanto)";
+const LINKEDIN_URL = "[linkedin.com](https://www.linkedin.com/in/tyler-canto/)";
 const EMAIL = "tylercanto23@gmail.com";
 const WHATSAPP = "(37) 99121-1749";
 
@@ -119,12 +119,13 @@ export default function Home() {
     "Digite 'help' para visualizar os comandos.",
   ]);
 
-  const terminalEndRef = useRef<HTMLDivElement>(null);
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll para a última linha + mantém o foco no input.
+  // Scroll só dentro do corpo do terminal — não move a página.
   useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = terminalBodyRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [terminalHistory]);
 
   function executeCommand(event: FormEvent) {
@@ -141,12 +142,15 @@ export default function Home() {
 
     const output = terminalCommands[cmd];
 
-   setTerminalHistory((prev) => [
-      ...prev,
-      "",
+    // Auto-limpa: substitui o histórico em vez de acumular
+    setTerminalHistory([
       `[visitor@datacenter ~]$ ${cmd}`,
       "",
-      ...(output ?? [`Comando '${cmd}' não encontrado.`, "", "Digite 'help'."]),
+      ...(output ?? [
+        `Comando '${cmd}' não encontrado.`,
+        "",
+        "Digite 'help'.",
+      ]),
     ]);
 
     setCommand("");
@@ -181,10 +185,7 @@ export default function Home() {
             <a href="#skills" className="hover:text-[#470000] transition">
               Skills
             </a>
-            <a
-              href="#projetos"
-              className="hover:text-[#470000] transition"
-            >
+            <a href="#projetos" className="hover:text-[#470000] transition">
               Projetos
             </a>
             <a href="#contato" className="hover:text-[#470000] transition">
@@ -233,10 +234,12 @@ export default function Home() {
             LinkedIn
           </a>
           <a
-            href="#projetos"
+            href={PROJECTS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-4 rounded-xl border border-zinc-700 hover:border-[#470000] transition"
           >
-            Portfólio
+            Projetos
           </a>
         </div>
       </section>
@@ -360,7 +363,7 @@ export default function Home() {
                 <span className="block text-[#ff0033] text-xl mb-3">◈</span>
                 {item}
               </div>
-            ),
+            )
           )}
         </div>
       </section>
@@ -386,7 +389,7 @@ export default function Home() {
                 <span className="block text-[#ff0033] text-2xl mb-3">◈</span>
                 <p className="text-zinc-300">{item}</p>
               </div>
-            ),
+            )
           )}
         </div>
       </section>
@@ -415,8 +418,7 @@ export default function Home() {
             },
             {
               title: "Fortinet",
-              items:
-                "Estudos em segurança de redes e soluções FortiGate",
+              items: "Estudos em segurança de redes e soluções FortiGate",
             },
             {
               title: "Linux Administration",
@@ -466,7 +468,7 @@ export default function Home() {
 
         <div className="flex justify-center mt-14">
           <a
-            href={PROJECTS_URL}
+            href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 rounded-xl border border-[#470000] text-[#ff0033] hover:bg-[#470000] hover:text-white transition"
@@ -498,7 +500,10 @@ export default function Home() {
 
           {/* TERMINAL BODY */}
           <div className="p-8 font-mono text-sm min-h-[450px] flex flex-col">
-            <div className="text-[#ff0033] whitespace-pre-wrap leading-8 font-medium flex-1 overflow-auto">
+            <div
+              ref={terminalBodyRef}
+              className="text-[#ff0033] whitespace-pre-wrap leading-8 font-medium flex-1 overflow-auto max-h-[400px]"
+            >
               {terminalHistory.map((line, index) => (
                 <p
                   key={`${index}-${line}`}
@@ -507,7 +512,6 @@ export default function Home() {
                   {line}
                 </p>
               ))}
-              <div ref={terminalEndRef} />
             </div>
 
             <form onSubmit={executeCommand} className="flex items-center gap-3 mt-6">
