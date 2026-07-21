@@ -228,7 +228,7 @@ export default function Home() {
             LinkedIn
           </button>
           <button
-            onClick={() => handleExternalLink("[projetos-mu-rose.vercel.app](https://projetos-mu-rose.vercel.app/#projetos)")}
+            onClick={() => handleExternalLink("https://projetos-mu-rose.vercel.app/#projetos")}
             className="px-8 py-4 rounded-xl border border-zinc-700 hover:border-[#470000] transition cursor-pointer"
           >
             Projetos
@@ -460,7 +460,7 @@ export default function Home() {
 
         <div className="flex justify-center mt-14">
           <button
-            onClick={() => handleExternalLink("[github.com](https://github.com/tylercanto)")}
+            onClick={() => handleExternalLink("https://github.com/tylercanto")}
             className="px-8 py-4 rounded-xl border border-[#470000] text-[#ff0033] hover:bg-[#470000] hover:text-white transition cursor-pointer"
           >
             ◈ Ver todos os projetos no GitHub
@@ -640,7 +640,7 @@ export default function Home() {
               <span className="text-[#700000] text-3xl">◈</span>
               <h3 className="mt-4 font-bold">LinkedIn</h3>
               <button
-                onClick={() => handleExternalLink("[linkedin.com](https://www.linkedin.com/in/tyler-canto/)")}
+                onClick={() => handleExternalLink("https://www.linkedin.com/in/tyler-canto/")}
                 className="text-zinc-400 mt-3 block hover:text-[#700000] transition cursor-pointer"
               >
                 /in/tyler-canto
