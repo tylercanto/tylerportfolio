@@ -650,13 +650,13 @@ export default function Home() {
 
           <div className="flex flex-wrap justify-center gap-5 mt-12">
             <button
-              onClick={() => handleExternalLink("[github.com](https://github.com/tylercanto)")}
+              onClick={() => handleExternalLink("https://www.linkedin.com/in/tyler-canto/")}
               className="px-8 py-4 rounded-xl border border-[#470000] hover:bg-[#470000] transition cursor-pointer"
             >
               ◈ GitHub
             </button>
             <button
-              onClick={() => handleExternalLink("[projetos-mu-rose.vercel.app](https://projetos-mu-rose.vercel.app/#projetos)")}
+              onClick={() => handleExternalLink("https://projetos-mu-rose.vercel.app/#projetos")}
               className="px-8 py-4 rounded-xl bg-[#470000] hover:bg-[#700000] transition cursor-pointer"
             >
               ◈ Projetos
