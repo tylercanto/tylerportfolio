@@ -216,13 +216,13 @@ export default function Home() {
 
         <div className="flex flex-wrap justify-center gap-5 mt-10">
           <button
-            onClick={() => handleExternalLink("(https://github.com/tylercanto)")}
+            onClick={() => handleExternalLink("https://github.com/tylercanto")}
             className="px-8 py-4 rounded-xl bg-[#470000] hover:bg-[#700000] transition font-semibold cursor-pointer"
           >
             GitHub
           </button>
           <button
-            onClick={() => handleExternalLink("(https://www.linkedin.com/in/tyler-canto/)")}
+            onClick={() => handleExternalLink("https://www.linkedin.com/in/tyler-canto/")}
             className="px-8 py-4 rounded-xl border border-[#470000]/40 hover:bg-[#470000]/10 transition cursor-pointer"
           >
             LinkedIn
@@ -650,11 +650,10 @@ export default function Home() {
 
           <div className="flex flex-wrap justify-center gap-5 mt-12">
             <button
-              onClick={() => handleExternalLink("https://www.linkedin.com/in/tyler-canto/")}
-              className="px-8 py-4 rounded-xl border border-[#470000] hover:bg-[#470000] transition cursor-pointer"
-            >
-              ◈ GitHub
-            </button>
+  onClick={() => handleExternalLink("https://github.com/tylercanto")}
+>
+  ◈ GitHub
+</button>
             <button
               onClick={() => handleExternalLink("https://projetos-mu-rose.vercel.app/#projetos")}
               className="px-8 py-4 rounded-xl bg-[#470000] hover:bg-[#700000] transition cursor-pointer"
