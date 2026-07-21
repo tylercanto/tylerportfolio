@@ -141,12 +141,12 @@ export default function Home() {
 
     const output = terminalCommands[cmd];
 
-    setTerminalHistory((prev) => [
+   setTerminalHistory((prev) => [
       ...prev,
       "",
       `[visitor@datacenter ~]$ ${cmd}`,
       "",
-      ...(output ?? [`Comando '${cmd}' não encontrado.`, "", "Digite 'help'.`]),
+      ...(output ?? [`Comando '${cmd}' não encontrado.`, "", "Digite 'help'."]),
     ]);
 
     setCommand("");
