@@ -146,7 +146,7 @@ export default function Home() {
       "",
       `[visitor@datacenter ~]$ ${cmd}`,
       "",
-      ...(output ?? [`Comando '${cmd}' não encontrado.`, "", "Digite 'help'.`]),
+      ...(output ?? [`Comando '${cmd}' não encontrado.`, "", "Digite 'help'."]),
     ]);
 
     setCommand("");
