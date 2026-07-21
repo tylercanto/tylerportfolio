@@ -141,7 +141,7 @@ export default function Home() {
 
     const output = terminalCommands[cmd];
 
-    setTerminalHistory((prev) => [
+      setTerminalHistory((prev) => [
       ...prev,
       "",
       `[visitor@datacenter ~]$ ${cmd}`,
